@@ -1,0 +1,52 @@
+
+import java.awt.*;
+import java.util.*;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        // the bubble sort algorithm
+        Scanner x = new Scanner(System.in);
+        String [] names;
+        String temp = "";
+        int number = 0;
+
+        System.out.println("Please the number of names to be sorted out: ");
+        number = x.nextInt();
+        names = new String [number];
+
+        // creating a scanner receiver for the strings because i cant use the number receiver
+        Scanner xx = new Scanner(System.in);
+        System.out.println("Please enter the names one by one: ");
+        for ( int i = 0; i < number; i++)
+        {
+            names[i] = xx.nextLine();
+        }
+        x.close();
+        xx.close();
+
+        // sorting the names in the string
+        for ( int i =0; i < number; i++)
+        {
+            for (int j = i+1; j < number; j++)
+            {
+                if ( names[i].compareTo(names[j]) > 0)
+                {
+                    temp = names[i];
+                    names[i] = names[j];
+                    names[j] = temp;
+                }
+            }
+        }
+        System.out.println("------------------------------------------");
+        System.out.println("sorted names are: ");
+        System.out.println("------------------------------------------");
+
+        // printing out the names
+        for ( int i =0; i < number; i++)
+        {
+            System.out.println(names[i]);
+        }
+    }
+}
